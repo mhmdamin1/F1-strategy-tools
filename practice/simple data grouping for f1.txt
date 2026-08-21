@@ -1,0 +1,16 @@
+df = pd.DataFrame({
+    "Driver": ["Hamilton", "Hamilton", "Verstappen", "Verstappen", "Leclerc"],
+    "Race": ["Bahrain", "Jeddah", "Baku", "monaco", "interlagos"],
+    "Points": [18, 25, 25, 12, 15]
+})
+
+
+df.groupby("Driver")["Points"].sum()
+df.groupby("Driver")["Points"].max()
+
+
+the out :
+
+Hamilton       43
+Leclerc        15
+Verstappen     37
