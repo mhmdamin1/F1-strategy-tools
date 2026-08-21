@@ -1,0 +1,13 @@
+# F1 Driver Points Analysis
+
+A simple practice project using Python, NumPy, and Pandas
+to generate and compare Formula 1 driver points.
+
+## Skills practiced
+- NumPy
+- Pandas DataFrame
+- groupby()
+- aggregation
+- sum()
+- min()
+- max()
