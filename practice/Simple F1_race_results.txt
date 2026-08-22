@@ -1,0 +1,120 @@
+# mohamed Amin 
+
+In [1]: import numpy as np
+
+In [2]: import pandas as pd
+
+In [3]: drivers = ["Hamilton", "Verstappen", "Leclerc"]
+   ...: races = ["Bahrain", "Monaco", "Baku", "Jeddah", "Spa"]
+   ...:
+   ...: # Point system
+   ...: pointSystem = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
+   ...:
+   ...: # Create DataFrame
+   ...: df = pd.DataFrame({
+   ...:     "Driver": np.repeat(drivers, len(races)),
+   ...:     "Race": races * len(drivers),
+   ...:     "Points": np.random.choice(pointSystem, size=len(drivers) * len(races))
+   ...: })
+
+In [4]: df
+
+Out[5]:
+
+        Driver       Race              Points
+0     Hamilton       Bahrain         12
+1     Hamilton       Monaco           4
+2     Hamilton       Baku                4
+3     Hamilton       Jeddah            2
+4     Hamilton       Spa                   8
+5   Verstappen    Bahrain           8
+6   Verstappen    Monaco            2
+7   Verstappen    Baku                18
+8   Verstappen    Jeddah            15
+9   Verstappen    Spa                   4
+10     Leclerc         Bahrain          4
+11     Leclerc         Monaco           25
+12     Leclerc         Baku                8
+13     Leclerc         Jeddah            8
+14     Leclerc         Spa                   6
+
+In [6]: df.groupby("Driver")["Points"].sum()
+
+Out[7]:
+
+Driver
+Hamilton          30
+Leclerc              51
+Verstappen     47
+Name: Points, dtype: int64
+
+In [8]: df.groupby("Driver")["Points"].max()
+
+Out[9]:
+
+Driver
+Hamilton         12
+Leclerc             25
+Verstappen    18
+Name: Points, dtype: int64
+
+In [10]: df.groupby("Driver")["Points"].agg(["sum", "min", "max"])
+
+Out[11]:
+                           sum  min  max
+Driver
+Hamilton        30      2        12
+Leclerc            51      4         25
+Verstappen   47      2         18
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In [12]: drivers = ["Hamilton", "Verstappen", "Leclerc", "Russel"]
+    ...: races = ["Bahrain", "Monaco", "Baku", "Jeddah", "Spa"]
+    ...:
+    ...: # Point system
+    ...: pointSystem = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
+    ...:
+    ...: # Create DataFrame
+    ...: df = pd.DataFrame({
+    ...:     "Driver": np.repeat(drivers, len(races)),
+    ...:     "Race": races * len(drivers),
+    ...:     "Points": np.random.choice(pointSystem, size=len(drivers) * len(races))
+    ...: })
+
+In [13]: df
+
+Out[14]:
+
+        Driver           Race              Points
+0     Hamilton        Bahrain         12
+1     Hamilton        Monaco            8
+2     Hamilton        Baku               10
+3     Hamilton        Jeddah             1
+4     Hamilton        Spa                    1
+5   Verstappen      Bahrain         10
+6   Verstappen      Monaco          25
+7   Verstappen      Baku                 1
+8   Verstappen      Jeddah             2
+9   Verstappen      Spa                    4
+10     Leclerc          Bahrain         18
+11     Leclerc          Monaco            6
+12     Leclerc          Baku               12
+13     Leclerc          Jeddah             1
+14     Leclerc          Spa                   10
+15      Russel          Bahrain          15
+16      Russel          Monaco             4
+17      Russel          Baku               15
+18      Russel          Jeddah             4
+19      Russel          Spa                  12
+
+In [15]: df.groupby("Driver")["Points"].agg(["sum", "min", "max"])
+
+Out[16]:
+                             sum  min  max
+Driver
+Hamilton          32        1       12
+Leclerc              47         1       18
+Russel                50         4       15
+Verstappen     42         1       25
+
