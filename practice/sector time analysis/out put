@@ -1,0 +1,24 @@
+   ham   rus  alonso  norris
+0  22.4  21.4    20.8    20.0
+1  23.9  23.9    26.9    22.0
+2  25.7  26.7    27.1    26.9
+ham       24.000000
+rus       24.000000
+alonso    24.933333
+norris    22.966667
+dtype: float64
+ham       22.4
+rus       21.4
+alonso    20.8
+norris    20.0
+dtype: float64
+ham       1.652271
+rus       2.651415
+alonso    3.580968
+norris    3.550117
+dtype: float64
+    drivers  Avr_SecTime  Best_SecTime  consistency
+0  hamilton    24.000000          22.4     1.652271
+1    russle    24.000000          21.4     2.651415
+2    alonso    24.933333          20.8     3.580968
+3    norris    22.966667          20.0     3.550117
